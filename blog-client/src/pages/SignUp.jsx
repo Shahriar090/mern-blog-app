@@ -24,7 +24,7 @@ export default function SignUp() {
           <form className="flex flex-col gap-4">
             <div>
               <Label value="User Name" />
-              <TextInput type="text" placeholder="User Name" id="user-name" />
+              <TextInput type="text" placeholder="User Name" id="userName" />
             </div>
             <div>
               <Label value="Email" />
@@ -42,6 +42,7 @@ export default function SignUp() {
               Sign Up
             </Button>
           </form>
+
           <div className="flex items-center gap-3 mt-5 text-sm">
             <span>Already Have An Account?</span>
             <Link to="/sign-in" className="text-blue-500">
