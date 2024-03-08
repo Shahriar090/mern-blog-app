@@ -29,8 +29,8 @@ export default function Header() {
         <CiSearch />
       </Button>
       <div className="flex gap-2 md:order-2">
-        <Button className="w-12 h-10 hidden sm:inline" color="gray" pill>
-          <CiCloudMoon />
+        <Button className=" hidden sm:inline" color="gray" pill>
+          <CiCloudMoon size={20} />
         </Button>
         <Link to="/sign-up">
           <Button gradientDuoTone="purpleToBlue" outline>
