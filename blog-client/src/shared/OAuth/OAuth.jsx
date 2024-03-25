@@ -12,6 +12,8 @@ const OAuth = () => {
   const auth = getAuth(app);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  //   google auth function
   const handleGoogleAuth = async () => {
     const provider = new GoogleAuthProvider();
     // this will ask every time to select a google account
@@ -30,6 +32,11 @@ const OAuth = () => {
           googlePhotoUrl: resultFromGoogleAuth.user.photoURL,
         }),
       });
+      if (!res.ok) {
+        throw new Error(
+          `Failed to authenticate with Google. Status: ${res.status}`
+        );
+      } 
       const data = await res.json();
       if (res.ok) {
         dispatch(signInSuccess(data));

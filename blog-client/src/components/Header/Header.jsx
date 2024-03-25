@@ -1,10 +1,12 @@
-import { Button, Navbar, TextInput } from "flowbite-react";
+import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CiSearch, CiCloudMoon } from "react-icons/ci";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   const path = useLocation().pathname;
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <Navbar className="border-b-2">
       <Link
@@ -32,11 +34,34 @@ export default function Header() {
         <Button className=" hidden sm:inline" color="gray" pill>
           <CiCloudMoon size={20} />
         </Button>
-        <Link to="/sign-up">
-          <Button gradientDuoTone="purpleToBlue" outline>
-            Sign Up
-          </Button>
-        </Link>
+        {/* user avatar */}
+        {currentUser ? (
+          <Dropdown
+            arrowIcon={false}
+            inline
+            label={
+              <Avatar alt="User" img={currentUser.profilePicture} rounded />
+            }
+          >
+            <Dropdown.Header>
+              <span className="block text-sm">{currentUser.userName}</span>
+              <span className="block text-sm">{currentUser.email}</span>
+            </Dropdown.Header>
+
+            {/* sign out and dashboard */}
+            <Link to="dashboard?tab=profile">
+              <Dropdown.Item>Profile</Dropdown.Item>
+            </Link>
+            <Dropdown.Divider />
+            <Dropdown.Item>SignOut</Dropdown.Item>
+          </Dropdown>
+        ) : (
+          <Link to="/sign-up">
+            <Button gradientDuoTone="purpleToBlue" outline>
+              Sign Up
+            </Button>
+          </Link>
+        )}
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
