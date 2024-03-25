@@ -2,11 +2,15 @@ import { Avatar, Button, Dropdown, Navbar, TextInput } from "flowbite-react";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CiSearch, CiCloudMoon } from "react-icons/ci";
-import { useSelector } from "react-redux";
+import { IoSunnyOutline } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleTheme } from "../../redux/theme/themeSlice";
 
 export default function Header() {
   const path = useLocation().pathname;
   const { currentUser } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const { theme } = useSelector((state) => state.theme);
   return (
     <Navbar className="border-b-2">
       <Link
@@ -31,8 +35,17 @@ export default function Header() {
         <CiSearch />
       </Button>
       <div className="flex gap-2 md:order-2">
-        <Button className=" hidden sm:inline" color="gray" pill>
-          <CiCloudMoon size={20} />
+        <Button
+          className=" hidden sm:inline"
+          color="gray"
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === "light" ? (
+            <CiCloudMoon size={20} />
+          ) : (
+            <IoSunnyOutline size={20} />
+          )}
         </Button>
         {/* user avatar */}
         {currentUser ? (
