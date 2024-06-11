@@ -5,12 +5,31 @@ import { CiSearch, CiCloudMoon } from "react-icons/ci";
 import { IoSunnyOutline } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../../redux/theme/themeSlice";
+import { signoutSuccess } from "../../redux/user/userSlice";
 
 export default function Header() {
   const path = useLocation().pathname;
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const { theme } = useSelector((state) => state.theme);
+
+  // sign out functionality
+
+  const handleSignOut = async () => {
+    try {
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        console.log(data.message);
+      } else {
+        dispatch(signoutSuccess());
+      }
+    } catch (error) {
+      console.error(error.message);
+    }
+  };
   return (
     <Navbar className="border-b-2">
       <Link
@@ -77,7 +96,7 @@ export default function Header() {
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <Dropdown.Divider />
-            <Dropdown.Item>SignOut</Dropdown.Item>
+            <Dropdown.Item onClick={handleSignOut}>SignOut</Dropdown.Item>
           </Dropdown>
         ) : (
           <Link to="/sign-up">
