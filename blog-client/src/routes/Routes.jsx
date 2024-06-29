@@ -7,6 +7,8 @@ import SignUp from "../pages/SignUp";
 import SignIn from "../pages/SignIn";
 import Dashboard from "../pages/Dashboard";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
+import AdminPrivateRoute from "../components/PrivateRoute/AdminPrivateRoute";
+import CreatePost from "../pages/CreatePost";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +41,14 @@ export const router = createBrowserRouter([
       {
         path: "sign-in",
         element: <SignIn />,
+      },
+      {
+        path: "create-post",
+        element: (
+          <AdminPrivateRoute>
+            <CreatePost />
+          </AdminPrivateRoute>
+        ),
       },
     ],
   },
