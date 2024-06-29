@@ -9,6 +9,7 @@ import Dashboard from "../pages/Dashboard";
 import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import AdminPrivateRoute from "../components/PrivateRoute/AdminPrivateRoute";
 import CreatePost from "../pages/CreatePost";
+import ViewPost from "../pages/ViewPost";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
             <CreatePost />
           </AdminPrivateRoute>
         ),
+      },
+      {
+        path: "create-post/:slug",
+        element: <ViewPost />,
       },
     ],
   },
