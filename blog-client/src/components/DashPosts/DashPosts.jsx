@@ -1,10 +1,12 @@
+import { Table } from "flowbite-react";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const DashPosts = () => {
   const { currentUser } = useSelector((state) => state.user);
   const [userPosts, setUserPosts] = useState([]);
-  console.log(userPosts);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -22,11 +24,61 @@ const DashPosts = () => {
     }
   }, [currentUser._id]);
   return (
-    <div>
-      <h1>Dash posts</h1>
+    <div className="table-auto overflow-x-scroll md:mx-auto p-3 scrollbar scrollbar-track-slate-100 scrollbar-thumb-slate-300 dark:scrollbar-track-slate-700 dark:scrollbar-thumb-slate-500">
+      {currentUser.isAdmin && userPosts.length > 0 ? (
+        <>
+          <Table hoverable className="shadow-md ">
+            <Table.Head>
+              <Table.HeadCell>Date Updated</Table.HeadCell>
+              <Table.HeadCell>Post Image</Table.HeadCell>
+              <Table.HeadCell>Post Title</Table.HeadCell>
+              <Table.HeadCell>Category</Table.HeadCell>
+              <Table.HeadCell>Delete</Table.HeadCell>
+              <Table.HeadCell>
+                <span>Update</span>
+              </Table.HeadCell>
+            </Table.Head>
+            {userPosts.map((post) => (
+              <Table.Body key={post._id}>
+                <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
+                  <Table.Cell>
+                    {new Date(post.updatedAt).toLocaleDateString()}
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link to={`/post/${post.slug}`}>
+                      <img
+                        src={post.image}
+                        alt="Post Image"
+                        className="w-20 h-10 bg-gray-500"
+                      />
+                    </Link>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link to={`/post/${post.slug}`}>{post.title}</Link>
+                  </Table.Cell>
+                  <Table.Cell>{post.category}</Table.Cell>
+                  <Table.Cell>
+                    <span className="font-medium text-red-500 hover:underline cursor-pointer">
+                      Delete
+                    </span>
+                  </Table.Cell>
+                  <Table.Cell>
+                    <Link to={`update-post/${post._id}`}>
+                      <span className="text-teal-500 font-medium hover:underline cursor-pointer">
+                        Edit
+                      </span>
+                    </Link>
+                  </Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            ))}
+          </Table>
+        </>
+      ) : (
+        <p>You Have No Post Yet</p>
+      )}
     </div>
   );
 };
 
 export default DashPosts;
-<h1>Dash posts</h1>;
