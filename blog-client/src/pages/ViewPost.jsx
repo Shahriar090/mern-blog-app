@@ -1,6 +1,7 @@
 import { Button, Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import CallToAction from "../components/CallToAction/CallToAction";
 
 const ViewPost = () => {
   const { postSlug } = useParams();
@@ -56,8 +57,8 @@ const ViewPost = () => {
       </div>
     );
   return (
-    <div className="h-full className='p-3 flex flex-col max-w-6xl mx-auto min-h-screen'">
-      <h1 className="text-3xl mt-10 p-3 text-center font-serif max-w-2xl mx-auto lg:text-4xl">
+    <div className="h-full p-3 flex flex-col max-w-6xl mx-auto min-h-screen'">
+      <h1 className="text-3xl mt-10 p-3 text-center max-w-2xl mx-auto lg:text-4xl">
         {post && post.title}
       </h1>
       <Link
@@ -85,6 +86,9 @@ const ViewPost = () => {
         className="p-3 max-w-2xl mx-auto w-full post-content"
         dangerouslySetInnerHTML={{ __html: post && post.content }}
       ></div>
+      <div className="max-w-4xl mx-auto w-full">
+        <CallToAction />
+      </div>
     </div>
   );
 };
