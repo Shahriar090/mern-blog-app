@@ -28,7 +28,7 @@ const UpdatePost = () => {
     const fetchData = async () => {
       const res = await fetch(`/api/post/getposts?postId=${postId}`);
       const data = await res.json();
-      console.log("Response data", data.posts[0]);
+
       if (!res.ok) {
         console.log(data.message);
         setPublishError(data.message);
@@ -95,7 +95,6 @@ const UpdatePost = () => {
         }
       );
       const data = await res.json();
-      console.log(data.updatedPost);
       if (!res.ok) {
         setPublishError(data.message);
         return;

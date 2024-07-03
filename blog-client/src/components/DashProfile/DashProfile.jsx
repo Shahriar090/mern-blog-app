@@ -166,7 +166,7 @@ const DashProfile = () => {
   };
 
   return (
-    <div className="max-w-screen-lg mx-auto px-4 sm:px-0">
+    <div className="max-w-screen-lg mx-auto px-4 sm:px-0 h-screen">
       <h1 className="text-center my-8 text-3xl font-semibold">Profile</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input

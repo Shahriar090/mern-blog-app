@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "view-post/:slug",
+        path: "view-post/:postSlug",
         element: <ViewPost />,
       },
       {
