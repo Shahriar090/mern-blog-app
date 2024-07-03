@@ -10,6 +10,7 @@ import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 import AdminPrivateRoute from "../components/PrivateRoute/AdminPrivateRoute";
 import CreatePost from "../pages/CreatePost";
 import ViewPost from "../pages/ViewPost";
+import UpdatePost from "../pages/UpdatePost";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "dashboard",
+        path: "/dashboard",
         element: (
           <PrivateRoute>
             <Dashboard />
@@ -52,8 +53,12 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "create-post/:slug",
+        path: "view-post/:slug",
         element: <ViewPost />,
+      },
+      {
+        path: "update-post/:postId",
+        element: <UpdatePost />,
       },
     ],
   },

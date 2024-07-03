@@ -14,9 +14,9 @@ export default function FooterComponent() {
               className="self-center whitespace-nowrap text-lg sm:text-2xl font-semibold dark:text-white"
             >
               <span className="px-3 py-1 bg-gradient-to-tr from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
-                Shahriar's
+                Wander
               </span>
-              Blog
+              Words
             </Link>
           </div>
           <div className="footer-content grid grid-cols-2 gap-8 mt-5 sm:grid-cols-3">
