@@ -4,7 +4,7 @@ import { FaUser, FaSignOutAlt } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { signoutSuccess } from "../../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { HiDocumentText } from "react-icons/hi";
+import { HiDocumentText, HiOutlineUserGroup } from "react-icons/hi";
 
 const DashSidebar = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -59,6 +59,17 @@ const DashSidebar = () => {
                 as="div"
               >
                 Posts
+              </Sidebar.Item>
+            </Link>
+          )}
+          {currentUser.isAdmin && (
+            <Link to="/dashboard?tab=users">
+              <Sidebar.Item
+                active={tab === "posts"}
+                icon={HiOutlineUserGroup}
+                as="div"
+              >
+                Users
               </Sidebar.Item>
             </Link>
           )}
