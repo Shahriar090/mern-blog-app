@@ -6,6 +6,7 @@ import { signoutSuccess } from "../../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
   HiAnnotation,
+  HiChartPie,
   HiDocumentText,
   HiOutlineUserGroup,
 } from "react-icons/hi";
@@ -56,6 +57,17 @@ const DashSidebar = () => {
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
+            <Link to="/dashboard?tab=dashCompo">
+              <Sidebar.Item
+                active={tab === "dashCompo" || !tab}
+                icon={HiChartPie}
+                as="div"
+              >
+                Dashboard Overview
+              </Sidebar.Item>
+            </Link>
+          )}
+          {currentUser.isAdmin && (
             <Link to="/dashboard?tab=posts">
               <Sidebar.Item
                 active={tab === "posts"}
@@ -88,6 +100,7 @@ const DashSidebar = () => {
               </Sidebar.Item>
             </Link>
           )}
+
           <Sidebar.Item
             icon={FaSignOutAlt}
             className="cursor-pointer"
