@@ -2,6 +2,7 @@ import { Button, Spinner } from "flowbite-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CallToAction from "../components/CallToAction/CallToAction";
+import CommentSection from "../components/CommentSection/CommentSection";
 
 const ViewPost = () => {
   const { postSlug } = useParams();
@@ -88,6 +89,9 @@ const ViewPost = () => {
       ></div>
       <div className="max-w-4xl mx-auto w-full">
         <CallToAction />
+      </div>
+      <div>
+        <CommentSection postId={post._id} />
       </div>
     </div>
   );
