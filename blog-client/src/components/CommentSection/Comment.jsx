@@ -31,6 +31,7 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
     setEditedContent(comment.content);
   };
 
+  // saving edited comment
   const handleSave = async () => {
     try {
       const res = await fetch(`/api/comment/editComment/${comment._id}`, {
@@ -47,7 +48,7 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
         onEdit(comment, editedContent);
       }
     } catch (error) {
-      console.log(error.message);
+      console.error(error.message);
     }
   };
   return (

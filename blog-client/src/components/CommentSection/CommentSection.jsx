@@ -13,6 +13,7 @@ const CommentSection = ({ postId }) => {
   const [showModal, setShowModal] = useState(false);
   const [commentToDelete, setCommentToDelete] = useState(null);
   const navigate = useNavigate();
+
   //   comment submit functionality
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,9 +72,9 @@ const CommentSection = ({ postId }) => {
       });
       if (res.ok) {
         const data = await res.json();
-        console.log(data);
+
         setComments(
-          comments.map((comment) =>
+          comments?.map((comment) =>
             comment._id === commentId
               ? {
                   ...comment,
