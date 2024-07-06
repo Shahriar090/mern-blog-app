@@ -11,6 +11,7 @@ import AdminPrivateRoute from "../components/PrivateRoute/AdminPrivateRoute";
 import CreatePost from "../pages/CreatePost";
 import ViewPost from "../pages/ViewPost";
 import UpdatePost from "../pages/UpdatePost";
+import Search from "../pages/Search";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
       {
         path: "projects",
         element: <Projects />,
+      },
+      {
+        path: "search",
+        element: <Search />,
       },
       {
         path: "sign-up",
