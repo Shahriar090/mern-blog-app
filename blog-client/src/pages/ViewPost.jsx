@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 import CallToAction from "../components/CallToAction/CallToAction";
 import CommentSection from "../components/CommentSection/CommentSection";
 import PostCard from "../ui/PostCard";
+import Container from "../ui/Container";
+import SectionTitle from "../ui/SectionTitle";
 
 const ViewPost = () => {
   const { postSlug } = useParams();
@@ -59,50 +61,57 @@ const ViewPost = () => {
       </div>
     );
   return (
-    <div className="h-full p-3 flex flex-col max-w-6xl mx-auto min-h-screen'">
-      <h1 className="text-3xl mt-10 p-3 text-center max-w-2xl mx-auto lg:text-4xl">
-        {post && post.title}
-      </h1>
-      <Link
-        to={`/search?category=${post && post.category}`}
-        className="self-center mt-5"
-      >
-        <Button color="gray" pill size="xs">
-          {post && post.category}
-        </Button>
-      </Link>
+    <Container>
+      <div className="h-full flex flex-col">
+        <h1 className="text-3xl text-center lg:text-4xl bg-gradient-to-r from-purple-700 to-pink-700 bg-clip-text text-transparent uppercase">
+          {post && post.title}
+        </h1>
+        <Link
+          to={`/search?category=${post && post.category}`}
+          className="self-center mt-5"
+        >
+          <Button color="gray" pill size="xs">
+            {post && post.category}
+          </Button>
+        </Link>
 
-      <img
-        src={post && post.image}
-        alt={post && post.title}
-        className="mt-10 p-3 max-h-[600px] w-full object-cover"
-      />
+        <div className=" mt-10">
+          <img
+            src={post && post.image}
+            alt={post && post.title}
+            className="max-h-[400px] w-full md:w-[30%] md:mx-auto rounded-md"
+          />
+        </div>
 
-      <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs">
-        <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
-        <span className="italic">
-          {post && (post.content.length / 1000).toFixed(0)} mins read
-        </span>
-      </div>
-      <div
-        className="p-3 max-w-2xl mx-auto w-full post-content"
-        dangerouslySetInnerHTML={{ __html: post && post.content }}
-      ></div>
-      <div className="max-w-4xl mx-auto w-full">
+        <div className="flex justify-between p-3 border-b border-slate-500 mx-auto w-full max-w-2xl text-xs">
+          <span>{post && new Date(post.createdAt).toLocaleDateString()}</span>
+          <span className="italic">
+            {post && (post.content.length / 1000).toFixed(0)} mins read
+          </span>
+        </div>
+        <div
+          className="p-3 max-w-3xl mx-auto w-full post-content border mt-2"
+          dangerouslySetInnerHTML={{ __html: post && post.content }}
+        ></div>
+        {/* call to action */}
+        {/* <div className="max-w-4xl mx-auto w-full">
         <CallToAction />
-      </div>
-      <div>
-        <CommentSection postId={post._id} />
-      </div>
-      {/* recent posts/articles */}
-      <div className="flex flex-col justify-center items-center mb-5">
-        <h1 className="text-xl mt-5">Recent Articles</h1>
-        <div className="flex flex-wrap gap-5 mt-5 justify-center">
-          {recentPosts &&
-            recentPosts.map((post) => <PostCard key={post._id} post={post} />)}
+      </div> */}
+        <div>
+          <CommentSection postId={post._id} />
+        </div>
+        {/* recent posts/articles */}
+        <div className="flex flex-col justify-center items-center mt-5">
+          <SectionTitle heading="Recent Articles" />
+          <div className="flex flex-wrap gap-5 mt-5 justify-center">
+            {recentPosts &&
+              recentPosts.map((post) => (
+                <PostCard key={post._id} post={post} />
+              ))}
+          </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

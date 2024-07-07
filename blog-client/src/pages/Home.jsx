@@ -3,6 +3,7 @@ import CallToAction from "../components/CallToAction/CallToAction";
 import PostCard from "../ui/PostCard";
 import { Link } from "react-router-dom";
 import Banner from "../components/Banner/Banner";
+import MostRecent from "../components/MostRecent/MostRecent";
 
 export default function Home() {
   // const [posts, setPosts] = useState([]);
@@ -18,6 +19,8 @@ export default function Home() {
   return (
     <div>
       <Banner />
+      <MostRecent />
+
       {/* <div className="flex flex-col gap-6 p-28 px-3 max-w-6xl mx-auto ">
         <h1 className="text-3xl font-bold lg:text-6xl">Welcome to my Blog</h1>
         <p className="text-gray-500 text-xs sm:text-sm">

@@ -7,11 +7,11 @@ const Banner = () => {
   return (
     <section>
       <div
-        className="relative w-full h-[600px] bg-cover bg-no-repeat bg-center"
+        className="relative w-full max-w-screen-2xl mx-auto h-[600px] bg-cover bg-no-repeat bg-center"
         style={{ backgroundImage: `url(${bannerImg})` }}
       >
         <div className="overlay  absolute inset-0 bg-black bg-opacity-80"></div>
-        <div className="texts z-50 absolute top-[30%] md:left-[30%] transform translate(-50%, -50%) flex flex-col gap-4 px-2 sm:px-0">
+        <div className="texts z-50 absolute top-[40%] md:left-[30%] transform translate(-50%, -50%) flex flex-col gap-4 px-2 sm:px-0">
           <h1 className="text-white text-3xl md:text-5xl text-center">
             Welcome To{" "}
             <span className="bg-gradient-to-r from-purple-700 to-pink-700 bg-clip-text text-transparent">

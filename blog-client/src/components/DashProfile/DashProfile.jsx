@@ -70,7 +70,8 @@ const DashProfile = () => {
       },
       (error) => {
         setImageFileUploadError(
-          "Could not upload image (File must be less than 2 MB)"
+          "Could not upload image (File must be less than 2 MB)",
+          error
         );
         setImageFileUploadProgress(null);
         setImageFile(null);

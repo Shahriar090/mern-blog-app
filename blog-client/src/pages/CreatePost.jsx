@@ -40,7 +40,7 @@ const CreatePost = () => {
           setImageUploadProgress(progress.toFixed(0));
         },
         (error) => {
-          setImageUploadError("Image Uploading Failed");
+          setImageUploadError("Image Uploading Failed", error);
           setImageUploadProgress(null);
         },
         () => {
@@ -83,8 +83,8 @@ const CreatePost = () => {
     }
   };
   return (
-    <div className="h-screen p-3 max-w-3xl mx-auto">
-      <h1 className="text-center text-3xl capitalize my-7 font-semibold">
+    <div className="h-full p-3 max-w-3xl mx-auto">
+      <h1 className="text-center text-black dark:text-teal-500 text-3xl my-7 font-semibold uppercase">
         Create a post
       </h1>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
