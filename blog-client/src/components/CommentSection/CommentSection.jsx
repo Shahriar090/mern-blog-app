@@ -36,7 +36,7 @@ const CommentSection = ({ postId }) => {
         }
       );
       const data = await res.json();
-      console.log(data);
+
       if (res.ok) {
         setComment("");
         setCommentError(null);
@@ -55,7 +55,7 @@ const CommentSection = ({ postId }) => {
         );
         if (res.ok) {
           const data = await res.json();
-          console.log(data.comments);
+
           setComments(data.comments);
         }
       } catch (error) {
