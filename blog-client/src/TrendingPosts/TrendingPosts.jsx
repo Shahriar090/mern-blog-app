@@ -11,7 +11,7 @@ const TrendingPosts = () => {
     const getTrendingPost = async () => {
       try {
         const res = await fetch(
-          "/api/post/getposts?trending===true&limit=4&sort=minutesRead"
+          "https://blog-server-one-theta.vercel.app/api/post/getposts?trending===true&limit=4&sort=minutesRead"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch trending posts");
