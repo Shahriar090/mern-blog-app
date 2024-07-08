@@ -50,7 +50,7 @@ export default function Header() {
     navigate(`/search?${searchQuery}`);
   };
   return (
-    <Navbar className="border-b-2">
+    <Navbar className="border-b-2 fixed top-0 right-0 left-0 z-[999]">
       <Link
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold text-black dark:text-white"
@@ -63,6 +63,9 @@ export default function Header() {
       <Navbar.Collapse>
         <Navbar.Link active={path === "/"} as={"div"}>
           <Link to="/">Home</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === "/search"} as={"div"}>
+          <Link to="/search">All Blogs</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/about"} as={"div"}>
           <Link to="/about">About</Link>

@@ -7,7 +7,7 @@ const Banner = () => {
   return (
     <section>
       <div
-        className="relative w-full max-w-screen-2xl mx-auto h-[600px] bg-cover bg-no-repeat bg-center"
+        className="relative w-full max-w-screen-2xl mx-auto h-[600px] bg-cover bg-no-repeat bg-center mt-14"
         style={{ backgroundImage: `url(${bannerImg})` }}
       >
         <div className="overlay  absolute inset-0 bg-black bg-opacity-80"></div>
@@ -28,11 +28,6 @@ const Banner = () => {
             </Link>
           </div>
         </div>
-        {/* <div className="image">
-          <picture>
-            <img src={bannerImg} alt="Banner Image" className="" />
-          </picture>
-        </div> */}
       </div>
     </section>
   );

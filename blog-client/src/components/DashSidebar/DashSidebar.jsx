@@ -6,6 +6,7 @@ import { signoutSuccess } from "../../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {
   HiAnnotation,
+  HiBookmark,
   HiChartPie,
   HiDocumentText,
   HiOutlineUserGroup,
@@ -97,6 +98,17 @@ const DashSidebar = () => {
                 as="div"
               >
                 All Comments
+              </Sidebar.Item>
+            </Link>
+          )}
+          {currentUser && (
+            <Link to="/dashboard?tab=bookmark">
+              <Sidebar.Item
+                active={tab === "bookmark"}
+                icon={HiBookmark}
+                as="div"
+              >
+                Bookmarked
               </Sidebar.Item>
             </Link>
           )}

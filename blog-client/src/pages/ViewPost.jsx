@@ -63,7 +63,7 @@ const ViewPost = () => {
   return (
     <Container>
       <div className="h-full flex flex-col">
-        <h1 className="text-3xl text-center lg:text-4xl bg-gradient-to-r from-purple-700 to-pink-700 bg-clip-text text-transparent uppercase">
+        <h1 className="text-3xl text-center lg:text-4xl bg-gradient-to-r from-purple-700 to-pink-700 bg-clip-text text-transparent capitalize">
           {post && post.title}
         </h1>
         <Link
@@ -79,7 +79,7 @@ const ViewPost = () => {
           <img
             src={post && post.image}
             alt={post && post.title}
-            className="max-h-[400px] w-full md:w-[30%] md:mx-auto rounded-md"
+            className="max-h-[400px] w-full md:w-[40%] md:mx-auto rounded-md"
           />
         </div>
 
@@ -90,7 +90,7 @@ const ViewPost = () => {
           </span>
         </div>
         <div
-          className="p-3 max-w-3xl mx-auto w-full post-content border mt-2"
+          className="p-3 max-w-3xl mx-auto w-full post-content mt-2 text-lg"
           dangerouslySetInnerHTML={{ __html: post && post.content }}
         ></div>
         {/* call to action */}

@@ -107,10 +107,16 @@ const CreatePost = () => {
           >
             <option value="uncategorized">Select A Category</option>
             <option value="javascript">JavaScript</option>
+            <option value="typescript">TypeScript</option>
             <option value="reactjs">React JS</option>
             <option value="nextjs">Next JS</option>
             <option value="nodejs">Node JS</option>
             <option value="expressjs">Express JS</option>
+            <option value="artificial-intelligence">
+              Artificial Intelligence
+            </option>
+            <option value="machine-learning">Machine Learning</option>
+            <option value="data-science">Data Science</option>
           </Select>
         </div>
         {/* file upload and text editor */}

@@ -9,7 +9,9 @@ export default function App() {
   return (
     <div>
       <Header />
-      <Outlet />
+      <div className="mt-12">
+        <Outlet />
+      </div>
       {noFooter || <FooterComponent />}
     </div>
   );

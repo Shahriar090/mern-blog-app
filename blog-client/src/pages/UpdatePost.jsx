@@ -28,7 +28,6 @@ const UpdatePost = () => {
     const fetchData = async () => {
       const res = await fetch(`/api/post/getposts?postId=${postId}`);
       const data = await res.json();
-
       if (!res.ok) {
         console.log(data.message);
         setPublishError(data.message);
@@ -62,7 +61,7 @@ const UpdatePost = () => {
           setImageUploadProgress(progress.toFixed(0));
         },
         (error) => {
-          setImageUploadError("Image Uploading Failed");
+          setImageUploadError("Image Uploading Failed", error);
           setImageUploadProgress(null);
         },
         () => {
@@ -83,6 +82,8 @@ const UpdatePost = () => {
   // form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form Data:", formData);
+    console.log("Current User:", currentUser);
     try {
       const res = await fetch(
         `/api/post/updatepost/${formData._id}/${currentUser._id}`,
@@ -95,6 +96,7 @@ const UpdatePost = () => {
         }
       );
       const data = await res.json();
+      console.log(data);
       if (!res.ok) {
         setPublishError(data.message);
         return;
@@ -104,7 +106,7 @@ const UpdatePost = () => {
         navigate(`/view-post/${data.updatedPost.slug}`);
       }
     } catch (error) {
-      setPublishError("Something Went Wrong");
+      setPublishError("Something Went Wrong", error.message);
     }
   };
   return (

@@ -128,14 +128,18 @@ const Search = () => {
               value={sidebarData.category}
               id="category"
             >
-              <option value="uncategorized">Uncategorized</option>
-              <option value="reactjs">React.js</option>
-              <option value="nextjs">Next.js</option>
+              <option value="uncategorized">Select A Category</option>
               <option value="javascript">JavaScript</option>
-              <option value="javascript">Redux</option>
-              <option value="javascript">TypeScript</option>
-              <option value="javascript">DBMS</option>
-              <option value="javascript">Node JS</option>
+              <option value="typescript">TypeScript</option>
+              <option value="reactjs">React JS</option>
+              <option value="nextjs">Next JS</option>
+              <option value="nodejs">Node JS</option>
+              <option value="expressjs">Express JS</option>
+              <option value="artificial-intelligence">
+                Artificial Intelligence
+              </option>
+              <option value="machine-learning">Machine Learning</option>
+              <option value="data-science">Data Science</option>
             </Select>
           </div>
           <Button type="submit" outline gradientDuoTone="purpleToPink">
