@@ -49,6 +49,10 @@ export default function SignUp() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
+      <span className="text-center">
+        Credentials: <p>hossainshahriar818@gmail.com</p>{" "}
+        <p>passs:hossainshahriar</p>
+      </span>
       <div className="flex flex-col md:flex-row md:items-center gap-5 p-3 max-w-3xl mx-auto">
         {/* left */}
         <div className="logo flex-1">
