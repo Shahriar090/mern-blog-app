@@ -15,7 +15,9 @@ const DashUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch(`/api/user/getusers`);
+        const res = await fetch(
+          `https://blog-server-one-theta.vercel.app/api/user/getusers`
+        );
         const data = await res.json();
         if (res.ok && data.users) {
           setUsers(data?.users);
