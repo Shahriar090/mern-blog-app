@@ -14,7 +14,9 @@ const DashComments = () => {
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const res = await fetch(`/api/comment/getComments`);
+        const res = await fetch(
+          `https://blog-server-one-theta.vercel.app/api/comment/getComments`
+        );
         const data = await res.json();
         console.log(data);
         if (res.ok && data.comments) {
@@ -38,7 +40,7 @@ const DashComments = () => {
     const startIndex = comments.length;
     try {
       const res = await fetch(
-        `/api/comment/getComments?startIndex=${startIndex}`
+        `https://blog-server-one-theta.vercel.app/api/comment/getComments?startIndex=${startIndex}`
       );
       const data = await res.json();
 
@@ -58,7 +60,7 @@ const DashComments = () => {
   const handleDeleteComment = async () => {
     try {
       const res = await fetch(
-        `/api/comment/deleteComment/${commentIdToDelete}`,
+        `https://blog-server-one-theta.vercel.app/api/comment/deleteComment/${commentIdToDelete}`,
         {
           method: "DELETE",
         }

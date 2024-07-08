@@ -34,15 +34,18 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
   // saving edited comment
   const handleSave = async () => {
     try {
-      const res = await fetch(`/api/comment/editComment/${comment._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          content: editedContent,
-        }),
-      });
+      const res = await fetch(
+        `https://blog-server-one-theta.vercel.app/api/comment/editComment/${comment._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            content: editedContent,
+          }),
+        }
+      );
       if (res.ok) {
         setIsEditing(false);
         onEdit(comment, editedContent);

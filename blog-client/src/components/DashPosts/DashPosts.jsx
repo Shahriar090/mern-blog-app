@@ -19,7 +19,9 @@ const DashPosts = () => {
       }
 
       try {
-        const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`);
+        const res = await fetch(
+          `https://blog-server-one-theta.vercel.app/api/post/getposts?userId=${currentUser._id}`
+        );
         const data = await res.json();
         if (res.ok && data.posts) {
           setUserPosts(data.posts);
@@ -42,7 +44,7 @@ const DashPosts = () => {
     const startIndex = userPosts.length;
     try {
       const res = await fetch(
-        `/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
+        `https://blog-server-one-theta.vercel.app/api/post/getposts?userId=${currentUser._id}&startIndex=${startIndex}`
       );
       const data = await res.json();
       if (res.ok && data.posts) {
@@ -62,7 +64,7 @@ const DashPosts = () => {
     setShowModal(false);
     try {
       const res = await fetch(
-        `/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
+        `https://blog-server-one-theta.vercel.app/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
         {
           method: "DELETE",
         }

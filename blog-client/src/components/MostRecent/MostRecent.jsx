@@ -11,7 +11,9 @@ const MostRecent = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       setLoading(true);
-      const res = await fetch("/api/post/getposts");
+      const res = await fetch(
+        "https://blog-server-one-theta.vercel.app/api/post/getposts"
+      );
       const data = await res.json();
       setPosts(data.posts);
       setLoading(false);

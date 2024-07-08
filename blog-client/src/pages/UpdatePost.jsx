@@ -86,7 +86,7 @@ const UpdatePost = () => {
     console.log("Current User:", currentUser);
     try {
       const res = await fetch(
-        `/api/post/updatepost/${formData._id}/${currentUser._id}`,
+        `https://blog-server-one-theta.vercel.app/api/post/updatepost/${formData._id}/${currentUser._id}`,
         {
           method: "PUT",
           headers: {

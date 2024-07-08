@@ -26,7 +26,9 @@ const DashboardComponent = () => {
     // get users
     const fetchUsers = async () => {
       try {
-        const res = await fetch("/api/user/getusers?limit=5");
+        const res = await fetch(
+          "https://blog-server-one-theta.vercel.app/api/user/getusers?limit=5"
+        );
         const data = await res.json();
         if (res.ok) {
           setUsers(data.users);
@@ -40,7 +42,9 @@ const DashboardComponent = () => {
     // get posts
     const fetchPosts = async () => {
       try {
-        const res = await fetch("/api/post/getposts?limit=5");
+        const res = await fetch(
+          "https://blog-server-one-theta.vercel.app/api/post/getposts?limit=5"
+        );
         const data = await res.json();
         if (res.ok) {
           setPosts(data.posts);
@@ -55,7 +59,9 @@ const DashboardComponent = () => {
     // fetch comments
     const fetchComments = async () => {
       try {
-        const res = await fetch("/api/comment/getComments?limit=5");
+        const res = await fetch(
+          "https://blog-server-one-theta.vercel.app/api/comment/getComments?limit=5"
+        );
         const data = await res.json();
         if (res.ok) {
           setComments(data.comments);
