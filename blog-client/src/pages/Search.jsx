@@ -100,7 +100,7 @@ const Search = () => {
 
   return (
     <div className="flex flex-col md:flex-row">
-      <div className="md:w-1/5 p-2 border-b md:border-r md:min-h-screen border-gray-500">
+      <div className="md:w-1/6 p-2 md:pt-5 border-b md:border-r md:min-h-screen border-gray-500">
         <form className="flex flex-col gap-8" onSubmit={handleSubmit}>
           <div className="flex  flex-col  gap-2">
             <label className="whitespace-nowrap font-semibold">
@@ -147,11 +147,8 @@ const Search = () => {
           </Button>
         </form>
       </div>
-      <div className="md:w-4/5">
-        <h1 className="text-3xl font-semibold sm:border-b border-gray-500 p-3 mt-5 capitalize">
-          Posts results:
-        </h1>
-        <div className="p-5 flex flex-wrap gap-5">
+      <div className="md:w-5/6 p-2 md:pt-5">
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5">
           {!loading && posts.length === 0 && (
             <p className="text-xl text-gray-500">No posts found.</p>
           )}
@@ -159,15 +156,15 @@ const Search = () => {
           {!loading &&
             posts &&
             posts.map((post) => <PostCard key={post._id} post={post} />)}
-          {showMore && (
-            <button
-              onClick={handleShowMore}
-              className="text-teal-500 text-lg hover:underline p-7 w-full"
-            >
-              Show More
-            </button>
-          )}
         </div>
+        {showMore && (
+          <button
+            onClick={handleShowMore}
+            className="text-teal-500 text-lg hover:underline p-7 w-full"
+          >
+            Show More
+          </button>
+        )}
       </div>
     </div>
   );

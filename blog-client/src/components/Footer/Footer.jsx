@@ -24,7 +24,7 @@ export default function FooterComponent() {
               <Footer.Title title="About" />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href="https://shahriar-hossain.netlify.app/"
+                  href="https://dev-shahriar.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -52,7 +52,7 @@ export default function FooterComponent() {
               <Footer.Title title="Follow Us" />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href="https://shahriar-hossain.netlify.app/"
+                  href="https://dev-shahriar.netlify.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

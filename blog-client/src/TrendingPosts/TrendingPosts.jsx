@@ -3,7 +3,7 @@ import Container from "../ui/Container";
 import SectionTitle from "../ui/SectionTitle";
 import PostCard from "../ui/PostCard";
 import { Spinner } from "flowbite-react";
-
+import advertiseImg from "../assets/advertising-3.jpg";
 const TrendingPosts = () => {
   const [trendingPosts, setTrendingPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -11,7 +11,7 @@ const TrendingPosts = () => {
     const getTrendingPost = async () => {
       try {
         const res = await fetch(
-          "/api/post/getposts?trending===true&limit=6&sort=minutesRead"
+          "/api/post/getposts?trending===true&limit=4&sort=minutesRead"
         );
         if (!res.ok) {
           throw new Error("Failed to fetch trending posts");
@@ -41,6 +41,14 @@ const TrendingPosts = () => {
               <PostCard key={post._id} post={post} />
             ))
           )}
+        </div>
+        <div className="advertising border mt-8 relative cursor-pointer">
+          <div className="overlay  absolute inset-0 bg-black bg-opacity-10"></div>
+          <img
+            src={advertiseImg}
+            alt="Advertise Image"
+            className="w-full md:h-[250px] object-cover rounded-md"
+          />
         </div>
       </Container>
     </section>
