@@ -90,12 +90,12 @@ export default function Header() {
         ></TextInput>
       </form>
 
-      <Button className="w-12 h-10  lg:hidden" color="gray" pill>
+      {/* <Button className="w-12 h-10  lg:hidden" color="gray" pill>
         <CiSearch />
-      </Button>
-      <div className="flex gap-2 md:order-2">
+      </Button> */}
+      <div className="flex gap-4 md:order-2">
         <Button
-          className=" hidden sm:inline"
+          className=" inline"
           color="gray"
           pill
           onClick={() => dispatch(toggleTheme())}
