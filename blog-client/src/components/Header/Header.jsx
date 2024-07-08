@@ -28,12 +28,9 @@ export default function Header() {
 
   const handleSignOut = async () => {
     try {
-      const res = await fetch(
-        "https://blog-server-one-theta.vercel.app/api/user/signout",
-        {
-          method: "POST",
-        }
-      );
+      const res = await fetch("/api/user/signout", {
+        method: "POST",
+      });
       const data = await res.json();
       if (!res.ok) {
       } else {
@@ -66,9 +63,6 @@ export default function Header() {
       <Navbar.Collapse>
         <Navbar.Link active={path === "/"} as={"div"}>
           <Link to="/">Home</Link>
-        </Navbar.Link>
-        <Navbar.Link active={path === "/search"} as={"div"}>
-          <Link to="/search">All Blogs</Link>
         </Navbar.Link>
         <Navbar.Link active={path === "/about"} as={"div"}>
           <Link to="/about">About</Link>

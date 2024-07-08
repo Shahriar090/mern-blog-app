@@ -21,22 +21,25 @@ const OAuth = () => {
 
     try {
       const resultFromGoogleAuth = await signInWithPopup(auth, provider);
-      const res = await fetch("/api/auth/google", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: resultFromGoogleAuth.user.displayName,
-          email: resultFromGoogleAuth.user.email,
-          googlePhotoUrl: resultFromGoogleAuth.user.photoURL,
-        }),
-      });
+      const res = await fetch(
+        "https://blog-server-one-theta.vercel.app/api/auth/google",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name: resultFromGoogleAuth.user.displayName,
+            email: resultFromGoogleAuth.user.email,
+            googlePhotoUrl: resultFromGoogleAuth.user.photoURL,
+          }),
+        }
+      );
       if (!res.ok) {
         throw new Error(
           `Failed to authenticate with Google. Status: ${res.status}`
         );
-      } 
+      }
       const data = await res.json();
       if (res.ok) {
         dispatch(signInSuccess(data));

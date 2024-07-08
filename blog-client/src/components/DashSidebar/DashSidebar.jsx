@@ -104,7 +104,7 @@ const DashSidebar = () => {
               </Sidebar.Item>
             </Link>
           )}
-          {currentUser && (
+          {!currentUser.isAdmin && (
             <Link to="/dashboard?tab=bookmark">
               <Sidebar.Item
                 active={tab === "bookmark"}
